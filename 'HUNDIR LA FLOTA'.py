@@ -20,7 +20,8 @@ print("""
                                                                                                                            """)
 
 time.sleep(2)
-nombre = print(str(input('BIENVENIDO A HUNDIR LA FLOTA, INGRESE SU NOMBRE DE JUGADOR:')))
+nombre = 'maquina'
+nombre = input('BIENVENIDO A HUNDIR LA FLOTA, INGRESE SU NOMBRE DE JUGADOR:')
 print('Gracias', nombre, 'que de comienzo el juego!!!')
 
 
