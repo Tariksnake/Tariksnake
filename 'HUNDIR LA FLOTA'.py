@@ -20,9 +20,16 @@ print("""
                                                                                                                            """)
 
 time.sleep(2)
-nombre = print(input('BIENVENIDO A HUNDIR LA FLOTA, INGRESE SU NOMBRE DE JUGADOR:'))
+nombre = print(str(input('BIENVENIDO A HUNDIR LA FLOTA, INGRESE SU NOMBRE DE JUGADOR:')))
 print('Gracias', nombre, 'que de comienzo el juego!!!')
 
+
+'''
+4 barcos de 1 posición de eslora
+3 barcos de 2 posiciones de eslora
+2 barcos de 3 posiciones de eslora
+1 barco de 4 posiciones de eslora
+'''
 
 def poner_barco(eslora, contador, tablero):
     while contador > 0:
@@ -116,18 +123,27 @@ while contador_player < 20 and contador_machine < 20:
                 tablero_player_shots[x, y] = "X"
                 tablero_machine[x, y] = "X"
                 contador_player += 1
-                print("Tocado!!\nTablero de shots del player\n", nombre, tablero_player_shots, "\n")
+                print("Tocado!!\nTablero de shots del player\n", nombre)
+                print(tablero_player_shots)
+                print('Tablero del player')
+                print(tablero_player)
 
             elif tablero_machine[x, y] == " ":
                 tablero_player_shots[x, y] = "-"
                 tablero_machine[x, y] = "-"
                 tipo_jugador = False
-                print("Al agua!!\nTablero de shots del player 1\n", nombre, tablero_player_shots, "\n")
+                print("Al agua!!\nTablero de shots del player \n", nombre)
+                print(tablero_player_shots)
+                print('Tablero del player')
+                print(tablero_player)
             elif  tablero_machine[x] == 0000:                  #Condicion para dar al jugador la opción de terminar la partida
                 print('GAME OVER!!!')
             else:
                 tipo_jugador = False
-                print("Ya has eligido esta coordenada...\nTablero de shots del player 1\n", nombre, tablero_player_shots, "\n")
+                print("Ya has eligido esta coordenada...\nTablero de shots del player \n", nombre)
+                print(tablero_player_shots)
+                print('Tablero del player')
+                print(tablero_player)
 
         except (NameError, ValueError, IndexError):
             print("----Tienes que eligir un numero entero entre 0 y 9. Intentalo de nuevo.----")
@@ -147,20 +163,21 @@ while contador_player < 20 and contador_machine < 20:
             tablero_player[x2, y2] = "X"
             contador_machine += 1
             time.sleep(0.5)
-            print("Machine ha dado uno de tus barcos!!\nTablero de barcos del player\n", nombre, tablero_player, "\n")
+            print("Machine ha dado uno de tus barcos!!\nTablero de barcos del player\n", nombre)
+            print(tablero_player_shots)
 
         elif tablero_player[x2, y2] == " ":
             tablero_machine_shots[x2, y2] = "-"
             tablero_player[x2, y2] = "-"
             tipo_jugador = True
             time.sleep(0.5)
-            print("Machine ha disparado al agua!\nTablero de barcos usuario 1\n", tablero_player,
-                  "\n Tablero de disparos del player \n",nombre, tablero_player_shots, "\n")
+            print("Machine ha disparado al agua!\n", "Tablero de disparos del player \n",nombre)
+            print(tablero_player_shots)
         else:
             tipo_jugador = True
             time.sleep(0.5)
-            print("El ordenador le ha vuelto a dar a la misma coordenada...\nTablero de barcos usuario 1\n",
-                  tablero_player, "\nTablero de disparos del player\n", nombre, tablero_player_shots, "\n")
+            print("El ordenador le ha vuelto a dar a la misma coordenada... \nTablero de disparos del player\n", nombre)
+            print(tablero_player_shots)
 
 
 if contador_player > contador_machine:
